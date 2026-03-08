@@ -148,7 +148,7 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-guide-options`
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '»»', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
@@ -604,8 +604,15 @@ require('lazy').setup({
       ---@type table<string, vim.lsp.Config>
       local servers = {
         clangd = {},
+        html = {},
+        cssls = {},
+        jsonls = {},
+        ruff = {},
+        vtsls = {},
+        texlab = {},
+        tailwindcss = {},
         -- gopls = {},
-        pyright = {},
+        basedpyright = {},
         -- rust_analyzer = {},
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -735,7 +742,22 @@ require('lazy').setup({
           --   end,
           -- },
         },
-        opts = {},
+        opts = {
+          completion = {
+            documentation = {
+              auto_show = true,
+              window = {
+                min_width = 15,
+                max_width = 60,
+                max_height = 20,
+                -- Use 'padded' for better internal spacing (more "breathable" text)
+                border = 'padded',
+                -- This tells the window where to try opening first (e = east/right)
+                direction_priority = { 'e', 'w', 'n', 's' },
+              },
+            },
+          },
+        },
       },
     },
     ---@module 'blink.cmp'
@@ -819,7 +841,8 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- WARN: here is where the scheme was slected
+      -- vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
 
@@ -989,6 +1012,7 @@ require('lazy').setup({
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   { import = 'custom.plugins' },
   { import = 'custom.keymaps' },
+  { import = 'custom.colors' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

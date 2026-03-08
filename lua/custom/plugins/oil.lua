@@ -144,7 +144,9 @@ return {
       -- A function that returns true to disable preview on a file e.g. to avoid lag
       disable_preview = function(filename) return false end,
       -- Window-local options to use for preview window buffers
-      win_options = {},
+      win_options = {
+        winblend = 0,
+      },
     },
     -- Configuration for the floating action confirmation window
     confirmation = {
@@ -197,4 +199,13 @@ return {
   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
   -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
   lazy = false,
+  --   vim.api.nvim_create_autocmd("User", {
+  --   pattern = "OilEnter",
+  --   callback = vim.schedule_wrap(function(args)
+  --     local oil = require("oil")
+  --     if vim.api.nvim_get_current_buf() == args.data.buf and oil.get_cursor_entry() then
+  --       oil.select({ preview = true })
+  --     end
+  --   end),
+  -- })
 }
