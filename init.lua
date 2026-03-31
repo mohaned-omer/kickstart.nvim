@@ -148,8 +148,13 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-guide-options`
 vim.o.list = true
-vim.opt.listchars = { tab = '»»', trail = '·', nbsp = '␣' }
-
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.o.ts = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
 

@@ -9,12 +9,12 @@ vim.keymap.set('n', '<A-k>', '<cmd>m .-2<cr>==', { desc = 'Move line up' })
 vim.keymap.set('v', '<A-j>', ":m '>+1<cr>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move selection up' })
 
-vim.keymap.set('n', '<leader>rf', function()
+vim.keymap.set('n', '<leader>r', function()
   local ft = vim.bo.filetype
   if ft == 'python' then
-    vim.cmd 'split | term python3 %'
+    vim.cmd '!python3 %'
   elseif ft == 'cpp' then
-    vim.cmd 'split | term g++ % -o out && ./out'
+    vim.cmd '!g++ % -o out && ./out'
   end
 end, { desc = '[R]un current file' })
 
