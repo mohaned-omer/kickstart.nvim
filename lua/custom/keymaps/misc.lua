@@ -1,3 +1,8 @@
+-- Tabs navigation
+-- vim.keymap.set({ 'n', 'v' }, '<leader>t', '<cmd>tabnew<cr>', { desc = 'Make a new tab' })
+vim.keymap.set({ 'n', 'v' }, '<tab>', '<cmd>bn<cr>', { desc = 'Move to the next Buffer' })
+vim.keymap.set({ 'n', 'v' }, '<s-tab>', '<cmd>bp<cr>', { desc = 'Move to the previous Buffer' })
+vim.keymap.set({ 'n', 'v' }, '<leader>w', '<cmd>bd<cr>', { desc = 'Close the current Buffer' })
 -- Save with Ctrl + S using 'update'
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<cmd>up<cr>', { desc = 'Update file' })
 
