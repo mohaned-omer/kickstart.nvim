@@ -1,4 +1,7 @@
--- Tabs navigation
+-- Change PWD to the current file's directory
+vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', { desc = 'CD to current file' })
+
+-- Buffer navigation
 -- vim.keymap.set({ 'n', 'v' }, '<leader>t', '<cmd>tabnew<cr>', { desc = 'Make a new tab' })
 vim.keymap.set({ 'n', 'v' }, '<tab>', '<cmd>bn<cr>', { desc = 'Move to the next Buffer' })
 vim.keymap.set({ 'n', 'v' }, '<s-tab>', '<cmd>bp<cr>', { desc = 'Move to the previous Buffer' })
@@ -14,13 +17,8 @@ vim.keymap.set('n', '<A-k>', '<cmd>m .-2<cr>==', { desc = 'Move line up' })
 vim.keymap.set('v', '<A-j>', ":m '>+1<cr>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move selection up' })
 
-vim.keymap.set('n', '<leader>r', function()
-  local ft = vim.bo.filetype
-  if ft == 'python' then
-    vim.cmd '!python3 %'
-  elseif ft == 'cpp' then
-    vim.cmd '!g++ % -o out && ./out'
-  end
-end, { desc = '[R]un current file' })
+vim.keymap.set('n', '<leader>rp', ':!python3 %<cr>', { desc = '[R]un current file with py' })
+vim.keymap.set('n', '<leader>rcc', ':!clang++ % -o out && ./out', { desc = '[R]un current file with clang++' })
+vim.keymap.set('n', '<leader>rcg', ':!g++ % -o out && ./out', { desc = '[R]un current file with g++' })
 
 return {}
