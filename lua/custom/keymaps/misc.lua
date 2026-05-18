@@ -1,6 +1,11 @@
 -- Change PWD to the current file's directory
-vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', { desc = 'CD to current file' })
+vim.keymap.set('n', '<leader>Cd', ':cd %:p:h<CR>:pwd<CR>', { desc = 'C(D) to current file' })
 
+local hid = function() vim.api.nvim_set_hl(0, 'Comment', { fg = '#707074', ctermfg = 245, bold = false, italic = false }) end
+local show = function() vim.api.nvim_set_hl(0, 'Comment', { fg = '#b2b8b0', ctermfg = 245, bold = false, italic = false }) end
+vim.keymap.set({ 'n', 'v' }, '<leader>Ch', hid, { desc = 'change comment color to be more hidden' })
+vim.keymap.set({ 'n', 'v' }, '<leader>Cs', show, { desc = 'change comment color to be more visable' })
+hid()
 -- Buffer navigation
 -- vim.keymap.set({ 'n', 'v' }, '<leader>t', '<cmd>tabnew<cr>', { desc = 'Make a new tab' })
 vim.keymap.set({ 'n', 'v' }, '<tab>', '<cmd>bn<cr>', { desc = 'Move to the next Buffer' })
