@@ -609,7 +609,19 @@ require('lazy').setup({
       --  See `:help lsp-config` for information about keys and how to configure
       ---@type table<string, vim.lsp.Config>
       local servers = {
-        clangd = {},
+        clangd = {
+          cmd = {
+            'clangd',
+            '--clang-tidy',
+            '--background-index',
+            '--offset-encoding=utf-8',
+          },
+          init_options = {
+            fallbackFlags = { '-std=c20', '-std=c++20', '-stdlib=libc++' },
+          },
+          root_markers = { '.clangd', 'compile_commands.json' },
+          filetypes = { 'c', 'cpp' },
+        },
         html = {},
         cssls = {},
         jsonls = {},
