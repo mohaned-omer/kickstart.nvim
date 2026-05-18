@@ -629,7 +629,7 @@ require('lazy').setup({
         vtsls = {},
         texlab = {},
         tailwindcss = {},
-        cmake = {},
+        neocmake = {},
         -- gopls = {},
         basedpyright = {},
         -- rust_analyzer = {},
