@@ -617,7 +617,11 @@ require('lazy').setup({
             '--offset-encoding=utf-8',
           },
           init_options = {
-            fallbackFlags = { '-std=c20', '-std=c++20', '-stdlib=libc++' },
+            fallbackFlags = {
+              -- '-std=c20',
+              -- '-std=c++20',
+              -- '-stdlib=libc++',
+            },
           },
           root_markers = { '.clangd', 'compile_commands.json' },
           filetypes = { 'c', 'cpp' },

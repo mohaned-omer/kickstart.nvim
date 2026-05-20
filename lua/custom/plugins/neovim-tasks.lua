@@ -33,11 +33,11 @@ return {
             'clangd',
             '--background-index',
             '--clang-tidy',
-            '--header-insertion=never',
+            '--header-insertion=iwyu',
             '--completion-style=detailed',
             '--offset-encoding=utf-8',
             '--pch-storage=memory',
-            '--cross-file-rename',
+            -- '--cross-file-rename',
             '-j=4',
           }, -- command line for invoking clangd - this array will be extended with --compile-commands-dir and --query-driver after each cmake configure with parameters inferred from build_kit, build_type and build_dir
         },
