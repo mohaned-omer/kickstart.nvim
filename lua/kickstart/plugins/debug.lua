@@ -89,6 +89,27 @@ return {
           disconnect = '⏏',
         },
       },
+      layouts = {
+        -- 1. Your Sidebar layout (Left side)
+        {
+          elements = {
+            { id = 'scopes', size = 0.25 },
+            'breakpoints',
+            'stacks',
+            'watches',
+          },
+          size = 40, -- Width of the sidebar
+          position = 'left',
+        },
+        {
+          elements = {
+            'repl',
+            'console',
+          },
+          size = 20,
+          position = 'bottom',
+        },
+      },
     }
 
     virtual_text.setup()
