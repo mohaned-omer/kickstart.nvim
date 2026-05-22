@@ -1,0 +1,27 @@
+{
+  "GCC": {
+    "compilers": {
+      "C": "gcc",
+      "CXX": "g++"
+    },
+    "cmake_usr_args": {
+      "CMAKE_C_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wconversion -Wsign-conversion -Wnull-dereference -Wdouble-promotion -fstack-protector-strong -fPIE -D_FORTIFY_SOURCE=2 -std=c23",
+      "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wconversion -Wsign-conversion -Wnull-dereference -Wdouble-promotion -fstack-protector-strong -fPIE -D_FORTIFY_SOURCE=2 -std=c++23 -Wold-style-cast -Woverloaded-virtual -Wnon-virtual-dtor",
+      "CMAKE_POSITION_INDEPENDENT_CODE": "ON"
+    },
+    "generator": "Ninja"
+  },
+  "Clang": {
+    "compilers": {
+      "C": "clang",
+      "CXX": "clang++"
+    },
+    "cmake_usr_args": {
+      "CMAKE_C_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wconversion -Wsign-conversion -Wnull-dereference -fstack-protector-strong -fPIE -D_FORTIFY_SOURCE=2 -std=c23",
+      "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wconversion -Wsign-conversion -Wnull-dereference -fstack-protector-strong -fPIE -D_FORTIFY_SOURCE=2 -std=c++23 -Wold-style-cast -Woverloaded-virtual -Wnon-virtual-dtor",
+      "CMAKE_POSITION_INDEPENDENT_CODE": "ON"
+    },
+    "query_driver": "clang++",
+    "generator": "Ninja"
+  }
+}

@@ -23,7 +23,9 @@ vim.keymap.set('v', '<A-j>', ":m '>+1<cr>gv=gv", { desc = 'Move selection down' 
 vim.keymap.set('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move selection up' })
 
 vim.keymap.set('n', '<leader>rp', ':!python3 %<cr>', { desc = '[R]un current file with py' })
-vim.keymap.set('n', '<leader>rcc', ':!clang++ % -std=c++20 -o out && ./out', { desc = '[R]un current file with clang++' })
-vim.keymap.set('n', '<leader>rcg', ':!g++ % -std=c++20 -o out && ./out', { desc = '[R]un current file with g++' })
+vim.keymap.set('n', '<leader>rcpc', ':!clang++ % -std=c++20 -Wall -Werror -o out && ./out', { desc = '[R]un current file with clang++' })
+vim.keymap.set('n', '<leader>rcpg', ':!g++ % -std=c++20 -Wall -Werror -o out && ./out', { desc = '[R]un current file with g++' })
+vim.keymap.set('n', '<leader>rcpc', ':!clang % -std=c11 -Wall -Werror -o out && ./out', { desc = '[R]un current file with clang' })
+vim.keymap.set('n', '<leader>rcpg', ':!gcc % -std=c11 -Wall -Werror -o out && ./out', { desc = '[R]un current file with gcc' })
 
 return {}

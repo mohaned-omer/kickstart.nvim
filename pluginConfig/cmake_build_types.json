@@ -1,0 +1,32 @@
+{
+  "Debug": {
+    "build_type": "Debug",
+    "cmake_usr_args": {
+      "CMAKE_C_FLAGS_DEBUG": "-g3 -O0 -fno-omit-frame-pointer",
+      "CMAKE_CXX_FLAGS_DEBUG": "-g3 -O0 -fno-omit-frame-pointer"
+    }
+  },
+  "Sanitize": {
+    "build_type": "Sanitize",
+    "cmake_usr_args": {
+      "CMAKE_C_FLAGS_SANITIZE": "-g3 -O1 -fsanitize=address,undefined,leak -fno-omit-frame-pointer",
+      "CMAKE_CXX_FLAGS_SANITIZE": "-g3 -O1 -fsanitize=address,undefined,leak -fno-omit-frame-pointer"
+    }
+  },
+  "Release": {
+    "build_type": "Release",
+    "cmake_usr_args": {
+      "CMAKE_C_FLAGS_RELEASE": "-O3 -DNDEBUG -march=native -flto",
+      "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG -march=native -flto",
+      "CMAKE_EXE_LINKER_FLAGS_RELEASE": "-flto"
+    }
+  },
+  "MinSizeRel": {
+    "build_type": "MinSizeRel",
+    "cmake_usr_args": {
+      "CMAKE_C_FLAGS_MINSIZEREL": "-Os -DNDEBUG -flto",
+      "CMAKE_CXX_FLAGS_MINSIZEREL": "-Os -DNDEBUG -flto",
+      "CMAKE_EXE_LINKER_FLAGS_MINSIZEREL": "-flto"
+    }
+  }
+}

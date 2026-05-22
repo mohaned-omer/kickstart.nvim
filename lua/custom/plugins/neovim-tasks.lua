@@ -27,8 +27,8 @@ return {
             name = 'codelldb', -- DAP configuration name from `require('dap').configurations[config]`. If there is no such configuration a new one with this name as `type` will be created.
           },
           build_dir = tostring(Path:new('{cwd}', 'build', '{build_type}')), -- Build directory. The expressions `{cwd}`, `{build_kit}` and `{build_type}` will be expanded with the corresponding text values. Could be a function that return the path to the build directory.
-          cmake_kits_file = nil, -- set path to JSON file containing cmake kits
-          cmake_build_types_file = nil, -- set path to JSON file containing cmake kits
+          cmake_kits_file = vim.fn.stdpath 'config' .. '/pluginConfig/cmake_kits.json', -- set path to JSON file containing cmake kits
+          cmake_build_types_file = vim.fn.stdpath 'config' .. '/pluginConfig/cmake_build_types.json', -- set path to JSON file containing cmake kits
           clangd_cmdline = {
             'clangd',
             '--background-index',
@@ -73,7 +73,7 @@ return {
       params_file = 'tasks_nvim.json',
       quickfix = {
         pos = 'bot',
-        height = 6,
+        height = 12,
         only_on_error = true,
       },
       dap_open_command = function() return require('dap').repl.close() end,
@@ -99,6 +99,7 @@ return {
 
     vim.lsp.config('clangd', {
       cmd = require('tasks.cmake_utils.cmake_utils').currentClangdArgs(),
+      filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
     })
     -- open ccmake in embedded terminal
     local function openCCMake()
