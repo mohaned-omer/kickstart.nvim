@@ -12,7 +12,8 @@ vim.keymap.set({ 'n', 'v' }, '<tab>', '<cmd>bn<cr>', { desc = 'Move to the next 
 vim.keymap.set({ 'n', 'v' }, '<s-tab>', '<cmd>bp<cr>', { desc = 'Move to the previous Buffer' })
 vim.keymap.set({ 'n', 'v' }, '<leader>w', '<cmd>bd<cr>', { desc = 'Close the current Buffer' })
 -- Save with Ctrl + S using 'update'
-vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<cmd>up<cr>', { desc = 'Update file' })
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<cmd>up<cr><Esc>', { desc = 'Update file' })
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Quickly switch to normal mode' })
 
 -- Normal mode: Move current line
 vim.keymap.set('n', '<A-j>', '<cmd>m .+1<cr>==', { desc = 'Move line down' })

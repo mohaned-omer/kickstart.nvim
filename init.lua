@@ -1,5 +1,5 @@
---[[
 
+--[[
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
@@ -631,12 +631,22 @@ require('lazy').setup({
           root_markers = { '.clangd', 'compile_commands.json' },
           filetypes = { 'c', 'cpp' },
         },
+        glslls = {},
         html = {},
         cssls = {},
         jsonls = {},
         ruff = {},
         vtsls = {},
-        texlab = {},
+        texlab = {
+          settings = {
+            texlab = {
+              build = { onSave = false },
+              chktex = { onOpenAndSave = false, onEdit = false },
+              diagnostics = { delay = 300 },
+              completion = { matcher = 'fuzzy' },
+            },
+          },
+        },
         tailwindcss = {},
         neocmake = {},
         -- gopls = {},
@@ -1041,6 +1051,7 @@ require('lazy').setup({
   { import = 'custom.plugins' },
   { import = 'custom.keymaps' },
   { import = 'custom.colors' },
+  { import = 'custom.lsp' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
@@ -1070,3 +1081,18 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+local save_fold = vim.api.nvim_create_augroup('PersistentFolds', { clear = true })
+
+vim.api.nvim_create_autocmd('BufWinLeave', {
+  group = save_fold,
+  pattern = '*',
+  callback = function() vim.cmd 'silent! mkview' end,
+})
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  group = save_fold,
+  pattern = '*',
+  callback = function() vim.cmd 'silent! loadview' end,
+})
+-- Prevent folds from being closed automatically when opening a file
+-- vim.opt.foldlevelstart = 99

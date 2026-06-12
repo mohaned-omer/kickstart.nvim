@@ -5,6 +5,15 @@ return {
   init = function()
     -- VimTeX configuration goes here, e.g.
     vim.g.vimtex_view_method = 'zathura'
-    vim.g.vimtex_doc_handlers = {'vimtex#doc#handlers#texdoc'}
+    vim.g.vimtex_doc_handlers = { 'vimtex#doc#handlers#texdoc' }
+    vim.g.vimtex_compiler_latexmk = {
+      options = {
+        '-shell-escape',
+        '-verbose',
+        '-file-line-error',
+        '-synctex=1',
+        '-interaction=nonstopmode',
+      },
+    }
   end,
 }
