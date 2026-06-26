@@ -1,4 +1,3 @@
-
 --[[
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
@@ -631,7 +630,7 @@ require('lazy').setup({
           root_markers = { '.clangd', 'compile_commands.json' },
           filetypes = { 'c', 'cpp' },
         },
-        glslls = {},
+        glsl_analyzer = {},
         html = {},
         cssls = {},
         jsonls = {},
@@ -647,6 +646,7 @@ require('lazy').setup({
             },
           },
         },
+        ltex = {},
         tailwindcss = {},
         neocmake = {},
         -- gopls = {},
